@@ -1,15 +1,18 @@
 name: Update Version
 
 on:
-  release:
-    types:
-      - created
+  push:
+    branches:
+    - main
 
 jobs:
   update_version:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Allow untrusted commands (less secure)
+        run: echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
+      
       - name: Checkout repository
         uses: actions/checkout@v2
 
