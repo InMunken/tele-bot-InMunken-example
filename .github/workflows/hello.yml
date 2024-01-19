@@ -12,3 +12,6 @@ jobs:
       - name: Echo a message.
         run: |
          echo "Hola lector"
+      - name: Dime la fecha.
+        run: date
+      - run: ls -l
