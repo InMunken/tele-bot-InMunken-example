@@ -21,7 +21,7 @@ jobs:
 
       - name: Update version in code
         run: |
-          sed -i "s/v0.0.1/${{ env.NEW_VERSION }}/" /version.md
+          sed -i "s/v0.0.1/${{ env.NEW_VERSION }}/" version.md
           git add version.md
           git commit -m "Update version in code to ${{ env.NEW_VERSION }}" || true
           git push
