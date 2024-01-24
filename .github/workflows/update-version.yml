@@ -28,7 +28,7 @@ jobs:
           git add version.txt
           git commit -m "Update version in code to ${{ env.NEW_VERSION }}"
           
-          # Push changes to both hotfix and master
+          # Push changes to both hotfix and main
           git push origin hotfix
-          git push origin master
+          git push origin main
           
