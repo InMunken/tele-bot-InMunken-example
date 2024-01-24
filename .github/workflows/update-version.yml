@@ -26,13 +26,13 @@ jobs:
 
       - name: Update version in code
         run: |
-          echo "${{ env.NEW_VERSION }}" > version.txt
+          echo "${{ env.NEW_VERSION }}" > version
           
       - name: Add and Commit
         run: |   
-          git add version.txt
+          git add version
           git commit -m "Update version in code to ${{ env.NEW_VERSION }}"
 
       - name: Push to hotfix(future master)
         run: |
-          git push origin hotfix
+          git push origin
