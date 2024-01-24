@@ -21,6 +21,9 @@ jobs:
 
       - name: Update version in code
         run: |
+          git config --global user.email "FedericoDaRosa137682@gmail.com"
+          git config --global user.name "InMunken"
+
           echo "${{ env.NEW_VERSION }}" >  version.txt
           git add version.txt
           git commit -m "Update version in code to ${{ env.NEW_VERSION }}"
