@@ -16,6 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Change to main branch
+        run: git checkout main
+
       - name: Get latest release version
         run: echo "::set-env name=NEW_VERSION::$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)"
 
@@ -28,6 +31,6 @@ jobs:
           git add version.txt
           git commit -m "Update version in code to ${{ env.NEW_VERSION }}"
           
-          
           git push origin main
+
           
