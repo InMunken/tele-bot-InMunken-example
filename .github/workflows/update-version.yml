@@ -3,7 +3,7 @@ name: Update Version
 on:
   push:
     branches:
-    - hotfix
+      - hotfix
 
 jobs:
   update_version:
@@ -19,9 +19,24 @@ jobs:
       - name: Get latest release version
         run: echo "::set-env name=NEW_VERSION::$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)"
 
+      - name: SetUp Identity
+        run: |
+          git config --global user.email "FedericoDaRosa137682@gmail.com"
+          git config --global user.name "InMunken"
+
       - name: Update version in code
         run: |
-          sed -i "${{ env.NEW_VERSION }}/" version.txt
+          echo "${{ env.NEW_VERSION }}" > version.txt
+          
+      - name: Add and Commit
+        run: |   
           git add version.txt
-          git commit -m "Update version in code to ${{ env.NEW_VERSION }}" || true
-          git push
+          git commit -m "Update version in code to ${{ env.NEW_VERSION }}"
+
+      - name: Pull changes from main
+        run: |
+          git pull origin main --no-rebase
+
+      - name: Push to main
+        run: |
+          git push origin hotfix:main
