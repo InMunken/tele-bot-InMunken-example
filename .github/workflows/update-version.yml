@@ -35,7 +35,7 @@ jobs:
 
       - name: Pull changes from main
         run: |
-          git pull origin main    
+          git pull origin main --no-rebase
 
       - name: Push to main
         run: |
