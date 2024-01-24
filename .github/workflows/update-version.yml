@@ -1,9 +1,9 @@
 name: Update Version
 
 on:
-  release:
-    types:
-      - created
+  push:
+    branches: 
+      - main
 
 jobs:
   update_version:
