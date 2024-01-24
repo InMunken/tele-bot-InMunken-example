@@ -1,9 +1,9 @@
 name: Update Version
 
 on:
-  push:
-    branches:
-      - hotfix
+  release:
+    types:
+      - created
 
 jobs:
   update_version:
@@ -32,10 +32,6 @@ jobs:
         run: |   
           git add version.txt
           git commit -m "Update version in code to ${{ env.NEW_VERSION }}"
-
-      - name: Pull changes from main
-        run: |
-          git pull origin main --no-rebase
 
       - name: Push to main
         run: |
