@@ -8,7 +8,7 @@ on:
 jobs:
   update_version:
     runs-on: ubuntu-latest
-    
+
 
     steps:
       - name: Allow untrusted commands (less secure)
@@ -36,7 +36,7 @@ jobs:
 
       - name: Pull changes from main
         run: |
-          git pull origin main --no-rebase
+          git pull origin main --no-rebase --allow-unrelated-histories
 
       - name: Push to main
         run: |
