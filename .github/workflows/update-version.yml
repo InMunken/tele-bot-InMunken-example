@@ -30,7 +30,7 @@ jobs:
           
       - name: Add and Commit
         run: |   
-          git add version.md
+          git add *
           git commit -m "Update version in code to ${{ env.NEW_VERSION }}"
 
       - name: Push to hotfix(future master)
