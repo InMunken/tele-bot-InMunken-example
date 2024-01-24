@@ -14,7 +14,7 @@ jobs:
         run: echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
       
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Get latest release version
         run: echo "::set-env name=NEW_VERSION::$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)"
