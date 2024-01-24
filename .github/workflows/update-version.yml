@@ -33,6 +33,6 @@ jobs:
           git add version.txt
           git commit -m "Update version in code to ${{ env.NEW_VERSION }}"
 
-      - name: Push to main
+      - name: Push to hotfix(future master)
         run: |
-          git push origin
+          git push origin hotfix
